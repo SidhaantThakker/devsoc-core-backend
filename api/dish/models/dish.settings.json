@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dishes",
+  "info": {
+    "name": "dish",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "type": {
+      "type": "string"
+    },
+    "cuisine": {
+      "type": "string"
+    },
+    "orders": {
+      "via": "dish",
+      "collection": "order"
+    }
+  }
+}
